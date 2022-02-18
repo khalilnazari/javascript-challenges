@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Color fliper App</title>
+</head>
+<body>
+    
+    <header>
+        <div id="flip_color">Flip Colors</div>
+        <div id="generate_color">General Random Color (Hex format)</div>
+    </header>
+    
+    <div class="container">
+        <div class="display-color" for="flip_color">
+            <h3>Flip among these color : ['#0000ff', '#40ff00', 'rgb(128, 0, 0)', 'hsl(0, 100%, 50%)']</h3>
+            <button id="flip_btn">Click Me</button>
+            <p>Color: <span id="show_flip_color"></span></p>
+        </div>
+        <div class="display-color hide" for="generate_color">
+            <h3>Generate Random Color in Hex Format</h3>
+            <button class="flip-color" id="flip_color_btn">Click Me</button>
+            <p>Generated Color : <span class="show_color"></span></p>
+        </div>
+    </div>
+
+    
+    <!-- javascript -->
+    <script src="./script.js"></script>
+</body>
+</html>
