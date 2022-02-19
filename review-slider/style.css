@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    font-family: system-ui;
+}
+
+body {
+    background-color: rgb(221, 221, 221);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.title h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #545454;
+}
+.title .underline {
+    height: 5px;
+    background: #4eacf2;
+    width: 6rem;
+    margin: 1rem auto 2rem;
+}
+
+
+.container {
+    max-width: 350px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.review {
+    background-color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+.review #job {
+    margin: .5rem 0;
+    color: rgb(62, 165, 241);
+    text-transform: uppercase;
+}
+
+.review img {
+    width: 100px;
+    clip-path: circle(36%);
+}
+
+button {
+    padding: 12px 13px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+button i {
+    font-size: 1.2rem;
+    color: #4eacf2;
+}
+
+.button-container {
+    margin-top: 40px;
+}
+
+.random-btn {
+    padding: 10px 20px;
+    margin-top: 1.3rem;
+    border-radius: 3px;
+    color: #4eacf2;
+}
