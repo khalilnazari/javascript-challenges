@@ -29,41 +29,45 @@ body {
     position: relative;
 }
 
+.left-sidebar {
+    background-color: rgb(255, 221, 221);
+    padding: 20px 0;
+}
 
-nav.sidebar {
+.left-sidebar .container {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
 }
 
-nav.sidebar .logo a {
+.left-sidebar .logo a {
     font-size: 1.8rem;
     font-weight: 900;
 }
 
 
-.toggle-btn {
+.left-sidebar .toggle-btn {
     background: transparent;
     border: none;
     cursor: pointer;
 }
 
-.toggle-btn i {
+.left-sidebar .toggle-btn i {
     font-size: 30px;
 }
 
-.left-sidebar {
+.left-sidebar .navbar {
     position: absolute;
     top: 0;
-    left: -260px;
+    left: -20rem;
     width: 16rem;
     height: 100vh;
     padding: 2rem 0;
     background-color: rgb(235, 235, 235);
-    transition: .3s linear;
+    transition: .3s linear; 
 }
 
-.left-sidebar.show {
+.left-sidebar .navbar.show-ls {
     left:0;
 }
 
@@ -72,19 +76,19 @@ nav.sidebar .logo a {
     margin-bottom: 1rem;
 }
 
-.navbar li {
+.left-sidebar li {
     padding-left: 1rem;
     transition: .3s linear;
     color:#494949;
 }
 
-.navbar li:hover, .navbar li.active {
+.left-sidebar li:hover, .left-sidebar li.active {
     background-color: #cacaca;
     color: black;
 }
 
 
-.navbar a {
+.left-sidebar a {
     display: block;
     padding: 0.8rem 0;
     font-size: 15px;
@@ -111,3 +115,218 @@ nav.sidebar .logo a {
     transform: rotate(90deg);
 }
 
+
+/* ************ Right Sidebar*********** */
+.right-sidebar {
+    background-color: rgb(209, 255, 209);
+    padding: 20px 0;
+}
+
+.right-sidebar .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-sidebar .toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.right-sidebar .toggle-btn i {
+    font-size: 30px;
+}
+
+.right-sidebar .navbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    padding-top: 3rem;
+    background-color: #e2e2e2;
+    overflow: hidden;
+    width: 0;
+    transition: 0.2s linear;
+}
+.right-sidebar .navbar.show-rs {
+    overflow: hidden;
+    width: 300px;
+}
+
+.right-sidebar li {
+    padding-left: 1rem;
+    margin-bottom: .3rem;
+    transition: .3s linear;
+}
+.right-sidebar li:hover, .right-sidebar li.active {
+    background-color: #333333;
+    color: white;
+}
+
+.right-sidebar li a {
+    display: block;
+    padding: .5rem 0;
+    font-weight: 600;
+}
+
+.right-sidebar .close-btn {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    border: none;
+    background: transparent;
+    transition: .4s linear;
+}
+.right-sidebar .close-btn:hover {
+    transform: rotate(90deg);
+}
+
+.right-sidebar .close-btn i {
+    font-size: 22px;
+    color: red;
+    cursor: pointer;
+}
+
+/* --------------- Top Mega Nav-------------- */
+.top-mega-nav {
+    padding: 1rem 0;
+    background-color: rgb(255, 239, 204);
+}
+
+.top-mega-nav .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-mega-nav .navbar {
+    position: absolute;
+    top: -5rem;
+    right: 0;
+    height: 0;
+    overflow-y: auto;
+    background-color: rgba(85, 85, 85, 0.95);
+    color: white;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 1rem;
+    padding: 2rem;
+    transition: .2s linear;
+}
+
+.top-mega-nav .navbar.show {
+    top: 0;
+    height: 100vh;
+}
+
+.top-mega-nav .navbar .close-btn {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    background: transparent;
+    border: 1px solid rgb(238, 238, 238);;
+    outline: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.8rem;
+    width: 2.8rem;
+    transition: .3s linear;
+    cursor: pointer;
+}
+
+.top-mega-nav .navbar .close-btn:hover {
+    color: white;
+    border-color: white;
+}
+
+.top-mega-nav .navbar .close-btn i {
+    font-size: 1.8rem;
+    color: rgb(238, 238, 238);
+}
+
+.top-mega-nav .show-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.top-mega-nav .show-btn i {
+    font-size: 30px;
+}
+
+
+
+/* right mega nav */
+.right-mega-nav {
+    padding: 1rem 0;
+    background-color: rgb(204, 255, 238);
+}
+
+.right-mega-nav .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-mega-nav .navbar {
+    position: absolute;
+    top: 0;
+    left:-100%;
+    height: 100vh;
+    width:100%;
+    overflow-y: auto;
+    background-color: rgba(85, 85, 85, 0.95);
+    color: white;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 1rem;
+    padding: 2rem;
+    transition: .2s linear;
+}
+
+.right-mega-nav .navbar.show {
+    left: 0;
+    width: 100%;
+}
+
+.right-mega-nav .navbar .close-btn {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    background: transparent;
+    border: 1px solid rgb(238, 238, 238);;
+    outline: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.8rem;
+    width: 2.8rem;
+    transition: .3s linear;
+    cursor: pointer;
+}
+
+.right-mega-nav .navbar .close-btn:hover {
+    color: white;
+    border-color: white;
+}
+
+.right-mega-nav .navbar .close-btn i {
+    font-size: 1.8rem;
+    color: rgb(238, 238, 238);
+}
+
+.right-mega-nav .show-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.right-mega-nav .show-btn i {
+    font-size: 30px;
+}
