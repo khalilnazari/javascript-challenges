@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: system-ui;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 95%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+body {
+    position: relative;
+}
+
+
+nav.sidebar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+nav.sidebar .logo a {
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+
+.toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-btn i {
+    font-size: 30px;
+}
+
+.left-sidebar {
+    position: absolute;
+    top: 0;
+    left: -260px;
+    width: 16rem;
+    height: 100vh;
+    padding: 2rem 0;
+    background-color: rgb(235, 235, 235);
+    transition: .3s linear;
+}
+
+.left-sidebar.show {
+    left:0;
+}
+
+.left-sidebar h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.navbar li {
+    padding-left: 1rem;
+    transition: .3s linear;
+    color:#494949;
+}
+
+.navbar li:hover, .navbar li.active {
+    background-color: #cacaca;
+    color: black;
+}
+
+
+.navbar a {
+    display: block;
+    padding: 0.8rem 0;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.left-sidebar .close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    border: none;
+    background: transparent;
+    transition: .4s linear;
+}
+
+.left-sidebar .close i{
+    font-size: 22px;
+    color: red;
+    cursor: pointer;
+    
+}
+.left-sidebar .close:hover {
+    transform: rotate(90deg);
+}
+
