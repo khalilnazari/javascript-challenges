@@ -27,8 +27,11 @@ a {
 
 body {
     position: relative;
+    overflow-X: hidden;
 }
 
+
+/* left sidebar */
 .left-sidebar {
     background-color: rgb(255, 221, 221);
     padding: 20px 0;
@@ -59,16 +62,17 @@ body {
 .left-sidebar .navbar {
     position: absolute;
     top: 0;
-    left: -20rem;
+    left:0;
     width: 16rem;
     height: 100vh;
     padding: 2rem 0;
     background-color: rgb(235, 235, 235);
+    transform: translate(-105%);
     transition: .3s linear; 
 }
 
 .left-sidebar .navbar.show-ls {
-    left:0;
+    transform: translate(0);
 }
 
 .left-sidebar h1 {
@@ -143,15 +147,15 @@ body {
     right: 0;
     top: 0;
     height: 100vh;
+    width: 300px;
     padding-top: 3rem;
     background-color: #e2e2e2;
+    transform: translateX(100%);
     overflow: hidden;
-    width: 0;
     transition: 0.2s linear;
 }
 .right-sidebar .navbar.show-rs {
-    overflow: hidden;
-    width: 300px;
+    transform: translate(0);
 }
 
 .right-sidebar li {
@@ -202,9 +206,9 @@ body {
 
 .top-mega-nav .navbar {
     position: absolute;
-    top: -5rem;
+    top:0;
     right: 0;
-    height: 0;
+    height: 100vh;
     overflow-y: auto;
     background-color: rgba(85, 85, 85, 0.95);
     color: white;
@@ -213,12 +217,12 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 1rem;
     padding: 2rem;
-    transition: .2s linear;
+    transform: translateY(-100%);
+    transition: .5s linear;
 }
 
 .top-mega-nav .navbar.show {
-    top: 0;
-    height: 100vh;
+    transform: translateY(0);
 }
 
 .top-mega-nav .navbar .close-btn {
@@ -275,7 +279,7 @@ body {
 .right-mega-nav .navbar {
     position: absolute;
     top: 0;
-    left:-100%;
+    left:0;
     height: 100vh;
     width:100%;
     overflow-y: auto;
@@ -286,12 +290,12 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 1rem;
     padding: 2rem;
-    transition: .2s linear;
+    transform: translateX(-100%);
+    transition: .5s linear;
 }
 
 .right-mega-nav .navbar.show {
-    left: 0;
-    width: 100%;
+    transform: translateX(0);
 }
 
 .right-mega-nav .navbar .close-btn {
@@ -329,4 +333,14 @@ body {
 
 .right-mega-nav .show-btn i {
     font-size: 30px;
+}
+
+@media screen and (max-width: 500px) {
+    .left-sidebar .navbar {
+        width: 100%;
+    }
+
+    .right-sidebar .navbar { 
+        width: 100%;
+    }
 }
