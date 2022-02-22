@@ -60,14 +60,14 @@
 <body>
     <div class="container">
         <h1>JavaScript Mini Projects</h1>
-
+        
         <div class="projects">
             <a class="project" href="./counter/index.html">Counter App</a>
             <a class="project" href="./color-flipper/index.html">Color Fliper</a>
             <a class="project" href="./review-slider/">Review Slider</a>
             <a class="project" href="./navbar/index.html">Navbar App</a>
             <a class="project" href="/side-bar/index.html">Sidebar App</a>
-            <a class="project" href="#">Comming Soon</a>
+            <a class="project" href="/modal-box/index.html">Modal Box</a>
             <a class="project" href="#">Comming Soon</a>
             <a class="project" href="#">Comming Soon</a>
             <a class="project" href="#">Comming Soon</a>
@@ -75,5 +75,26 @@
             <a class="project" href="#">Comming Soon</a>
         </div>
     </div>
+
+    <script>
+
+        const colorLetters = [9, 'A', 'B', 'C', 'D', 'E', 'F']; 
+
+        document.querySelectorAll('.project').forEach(ele => {
+            ele.style.backgroundColor=getRandomColor();
+            
+        })
+
+        // const colorLetters = [9, 'A', 'B', 'C', 'D', 'E', 'F']; 
+
+        function getRandomColor() {
+            let randomNumber  = getRandomNumber()
+            return '#'+colorLetters[getRandomNumber()] + colorLetters[getRandomNumber()] + colorLetters[getRandomNumber()] + colorLetters[getRandomNumber()] + colorLetters[getRandomNumber()] + colorLetters[getRandomNumber()];
+        }
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * (colorLetters.length - 0) + 0); 
+        }
+    </script>
 </body>
 </html>
