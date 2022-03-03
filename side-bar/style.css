@@ -151,7 +151,7 @@ body {
     padding-top: 3rem;
     background-color: #e2e2e2;
     transform: translateX(100%);
-    overflow: hidden;
+    /*overflow: hidden;*/
     transition: 0.2s linear;
 }
 .right-sidebar .navbar.show-rs {
