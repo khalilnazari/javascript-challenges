@@ -34,7 +34,7 @@ body {
 
 
 /* main */
-main .buttons {
+main .filter-buttons {
     padding: 2rem 0;
     text-align: center;
 }
@@ -52,7 +52,7 @@ main .filter-btn {
     border: 1px solid #e8e8e8; 
     color: black;
 }
-main .filter-btn.selected{
+main .filter-btn:focus {
     background-color: #dfc42a;
     border: 1px solid #dfc42a;
     color: white;
@@ -61,12 +61,12 @@ main .filter-btn.selected{
 
 
 /* menu-items */
-main .menu {
+main .menu-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
-main .menu .menu-item {
+main .menu-wrapper .menu-item {
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -97,7 +97,7 @@ main .price  {
     color: #dfc42a;
 }
 
-main .menu img {
+main .menu-wrapper img {
     height: 130px;
     width: 100%;
     object-fit: cover;
@@ -111,11 +111,11 @@ main .menu img {
 
 
 @media screen and (max-width: 822px) {
-    main .menu {
+    main .menu-wrapper {
         display: block
     }
 
-    main .menu img {
+    main .menu-wrapper img {
         height: 159px;
         /* width: 89%; */
     }
@@ -124,12 +124,12 @@ main .menu img {
 
 @media screen and (max-width: 499px) {
 
-    main .menu .menu-item {
+    main .menu-wrapper .menu-item {
         display: block;
         padding-bottom: 1.5rem;
     }
 
-    main .menu img {
+    main .menu-wrapper img {
         height: 200px;
         width: 100%;
     }

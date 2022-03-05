@@ -74,121 +74,102 @@ const menu = [
 	},
 	{
 		id: 10,
-		title: "quarantine buddy",
+		title: "Steack dinner",
 		category: "steaks",
 		price: 16.99,
-		img: "./images/item-9.jpeg",
+		img: "./images/item-10.jpeg",
 		desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
 	}
 ];
 
-// menu categories 
-const categories = [
-	{
-		id: 0, 
-		type: 'all', 
-	},
-	{
-		id: 1, 
-		type: 'lunch', 
-	}, 
-	{
-		id: 2, 
-		type: 'breakfast', 
-	},  
-	{
-		id: 3, 
-		type: 'shakes'
-	}, 
-	{
-		id: 4, 
-		type: 'steaks'
-	}
-]
+// selectors 
+const menuWrapper = document.querySelector('.menu-wrapper'); 
+const filterBtn = document.querySelector('.filter-buttons'); 
 
-// map categories 
-let categoryHTML = ``; 
-categories.forEach(category => {
-	categoryHTML += `<button class="filter-btn" id="${category.type}">${category.type}</button> `
-})
-document.querySelector('.buttons').innerHTML = categoryHTML; 
-
-
-// map menu items 
-let menuHTML = ``;
-menu.forEach(item => {
-	menuHTML += `
-		<div class="menu-item" data-category="${item.category}">
-			<div class="item-image">
-				<img src="${item.img}" alt="menu image">
-			</div>
-			<div class="text">
-					<header class="title">
-							<h4>${item.title}</h4>
-							<h4 class="price">${item.price}</h4>
-					</header>
-					<p>${item.desc}</p>
-			</div>
-		</div>`; 
-})
-document.querySelector('.menu').innerHTML = menuHTML; 
-
-const menuWrapper = document.querySelectorAll('.menu'); 
-const menu_item = document.querySelectorAll('.menu-item'); 
-const filter_btn = document.querySelectorAll('.filter-btn'); 
-
-
-
-let displayItem = 'flex'; 
-window.addEventListener('resize', () => {
-	let width = window.innerWidth; 
-
-	if(width <= 499) {
-		displayItem = 'block'
-	} else  {
-		displayItem = 'flex'; 
-	}
-
-	// EXTRA: when resizing window width menu-item will be displayed block
-	Array.from(menu_item).forEach(item => {
-		item.style.display=displayItem; 
-	})
+// after DOM is loaded 
+window.addEventListener('DOMContentLoaded', () => {
+	// filter buttons
+	displayFilterButton()
+	
+	// menu itmes 
+	displayMenu(menu); 
+	
+	// filter menu
+	const filter_btn = document.querySelectorAll('.filter-btn'); 
+	filterMenu(menu, filter_btn)
 })
 
-// loop for sorting buttons
-Array.from(filter_btn).forEach(btn => {
-	// Click event for each button
+// loop filter buttons
+function filterMenu(menuItems, filter_btn) {
+	Array.from(filter_btn).forEach(btn => {
+		// Click event for each button
+	
+		btn.addEventListener('click', (e) => {
+			// id of button which the categor name
+			const category = e.currentTarget.dataset.category; 
 
-	btn.addEventListener('click', (e) => {
-		
-		Array.from(filter_btn).forEach(b => {
-			b.classList.remove('selected')
-			if(e.currentTarget == b){
-				b.classList.add('selected')
-			}
-		})
-		
+			// filter
+			let filteredItem = menuItems.filter((item) => {
+				if(item.category === category) {
+					return item;
+				} 
+			})
 
-
-
-		// id of button which the categor name
-		const btnId = e.currentTarget.id; 
-		
-		// loop through all item menu 
-		Array.from(menu_item).forEach(item => {
-
-			// display menu item based on btn category
-			if(btnId == item.dataset.category){
-				item.style.display=displayItem; 
-
+			// check which category is selected
+			if(category === 'all') {
+				displayMenu(menuItems)
 			} else {
-				item.style.display='none';
-			}
-
-			// display all menu 
-			if(btnId == 'all') {
-				item.style.display=displayItem; 
+				displayMenu(filteredItem)
 			}
 		})
 	})
-})
+}
+
+// map menu array to html 
+function displayMenu(menuItem) {
+	let menuHTML = menuItem.map(item => {
+		return `
+			<div class="menu-item" data-category="${item.category}">
+				<div class="item-image">
+					<img src="${item.img}" alt="menu image">
+				</div>
+				<div class="text">
+						<header class="title">
+								<h4>${item.title}</h4>
+								<h4 class="price">${item.price}</h4>
+						</header>
+						<p>${item.desc}</p>
+				</div>
+			</div>`; 
+	})
+
+	menuWrapper.innerHTML= menuHTML.join(""); 
+}
+
+
+
+// map filter buttons 
+function displayFilterButton() {
+
+	let uniqueCategories = getUniqueCategories(); 
+
+	let filterbuttons = uniqueCategories.map(category => {
+		return `<button class="filter-btn" data-category="${category}">${category}</button> `
+	})
+
+	filterBtn.innerHTML = filterbuttons.join('')
+}
+
+
+function getUniqueCategories () {
+	// let uniqueCategory =  [...new Set(menu.map(item => item.category))];
+	let uniqueRecord =  menu.reduce((values, index) => {
+		
+		if(!values.includes(index.category)){
+			values.push(index.category)
+		}
+		return values
+	},['all']); 
+
+	return uniqueRecord;
+}
