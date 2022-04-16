@@ -1,0 +1,159 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* input */
+.input_div {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 1rem;
+}
+
+.input_div input {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    outline: none;
+    border: none;
+}
+
+.input_div button {
+    background-color: rgb(37, 106, 235);
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+}
+
+body {
+    background-color: rgb(48, 48, 48);
+}
+
+section.input {
+    height: 15vh;
+    border-bottom: 1px solid grey;
+    display: grid;
+    place-items: center;
+}
+
+
+section.tasks {
+    height: 85vh;
+    overflow-y: auto;
+}
+
+.list-group {
+    list-style-type: none;
+    color: white;
+}
+
+.list-group li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0;
+    border-bottom: 1px solid grey;
+    padding-bottom: 1rem;
+}
+
+.list-group li:last-of-type {
+    border-bottom: none;
+}
+
+.list-group li input {
+    background-color: rgb(51 51 51);
+    outline: none;
+    border: 1px solid rgb(54, 54, 54);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    height: auto;
+}
+
+/* Error Message */
+.error_message {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin-top: 5rem;
+}
+
+/* buttons */
+.action_buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action_buttons input {
+    background-color: rgb(51 51 51);
+    outline: none;
+    border: 1px solid rgb(54, 54, 54);
+    color: rgb(39, 39, 39);
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.btn-primary, .btn-danger, .btn-success {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.btn-primary { background-color: rgb(192, 192, 192); }
+.btn-danger { background-color: rgb(189, 0, 0); color: white;}
+.btn-success {
+    background-color: rgb(34, 173, 76);
+    color: white;
+}
+
+
+
+/* Medium size */
+@media( max-width:850px) {
+    .container {
+        width: 95%;
+    }
+}
+
+/* Mobile Screen */
+@media( max-width: 600px ) {
+    .input_div {
+        flex-direction: column;
+        gap: .2rem;
+    }
+
+    .input_div button {
+        width: 100%;
+    }
+
+    .list-group li { 
+        flex-direction: column;
+    }
+
+    .action_buttons {
+        justify-content: flex-end;
+    }
+}

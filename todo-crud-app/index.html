@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <!-- style -->
+    <link rel="stylesheet" href="style.css">
+    <title>Todo CRUD App</title>
+  </head>
+  <body>
+    <!-- create task -->
+    <section class="input">
+        <div class="container bg-dark">
+            <div class="bg-dark py-5 input_div">
+                <input type="text" class="form-control" id="taskInput" placeholder="Enter task...">
+                <button class="btn btn-primary add-task-btn form-control" id="btnAddTask">ADD</button>
+            </div>
+        </div>
+    </section>
+    <!-- create task end -->
+
+    <!-- tasks -->
+    <section class="tasks">
+        <div class="container bg-dark text-light py-4">
+            <!-- if no task -->
+            <h3 class="error_message text-center" style="display: block;">No Task Found</h3>
+            
+            <!-- display all tasks -->
+            <ul class="list-group tasks_list">
+                <!-- <li class="list-group-item list-group-item-dark" id="task_item_sample" style="">
+                    <input type="text" disabled class="task">
+                    <div class="action_buttons">
+                      adsfasdfasdf
+                        <button class="btn btn-primary edit-task-btn btn-sm"><i class="fa fa-edit" id="but_edit_32165468"></i> Edit</button>
+
+                        <button class="btn btn-danger delete-task-btn btn-sm"><i class="fa fa-trash" id="but_delete_32165468"></i> Delete</button>
+
+                    </div>
+                </li> -->
+              </ul>
+        </div>
+    </section>
+    <!-- tasks end -->
+
+    <script src="main.js"></script>
+  </body>
+</html>
