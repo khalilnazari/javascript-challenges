@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            display: grid;
+            place-content: center;
+            height: 80vh;
+        }
+
+        .gParent,
+        .parent {
+            display: grid;
+            place-content: center;
+        }
+        .gParent {
+            height: 200px;
+            width: 200px;
+            background: red;
+        }
+
+        .parent {
+            height: 100px;
+            width: 100px;
+            background: green;
+        }
+
+        .child {
+            height: 50px;
+            width: 50px;
+            background: yellow;
+        }
+    </style>
+
+    <div class="gParent div">
+        <div class="parent div">
+            <div class="child div"></div>
+        </div>
+    </div>
+
+    <script>
+        const div = document.querySelectorAll(".div");
+
+        div.forEach((d) => {
+            d.addEventListener("click", (e) => {
+            e.stopPropagation();
+            console.log("div: " + e.target.classList.value);
+            });
+
+            // }, {capture:true});
+        });
+    </script>
+</body>
