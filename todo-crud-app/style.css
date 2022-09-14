@@ -20,18 +20,22 @@ body {
 
 /* input */
 .input_div {
-    display: flex; 
+    /* display: flex; 
     align-items: center; 
     justify-content: space-between; 
-    gap: 1rem;
+    gap: 1rem; */
 }
 
-.input_div input {
+.input_div input, .input_div textarea {
     width: 100%;
-    font-size: 18px;
     padding: 10px;
     outline: none;
     border: none;
+}
+
+.input_div input {
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .input_div button {
@@ -48,7 +52,8 @@ body {
 }
 
 section.input {
-    height: 15vh;
+    /* height: 15vh; */
+    padding: 20px 0 10px 0;
     border-bottom: 1px solid grey;
     display: grid;
     place-items: center;
@@ -128,6 +133,39 @@ section.tasks {
     background-color: rgb(34, 173, 76);
     color: white;
 }
+
+
+.taskWrapper {
+    /* border: 1px solid gray; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.taskWrapper .taskCart {
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+}
+
+.taskWrapper .taskCart__header {
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #e5e5e5;
+}
+
+.taskWrapper button {
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+}
+
+.taskWrapper .taskCart__body {
+    padding: 10px 10px 20px 10px;
+}
+
 
 
 

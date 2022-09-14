@@ -110,15 +110,15 @@ class task {
 }
 
 
-addButton.addEventListener('click', () => {
-  const newTaskValue= document.querySelector("#taskInput");
+// addButton.addEventListener('click', () => {
+//   const newTaskValue= document.querySelector("#taskInput");
 
-  if(newTaskValue.value != ""){
-    new task(newTaskValue.value); 
-    newTaskValue.value = "";
-  } 
+//   if(newTaskValue.value != ""){
+//     new task(newTaskValue.value); 
+//     newTaskValue.value = "";
+//   } 
 
-});
+// });
 
 window.addEventListener('keydown', (e) => {
   if(e.which == 13) {
@@ -130,4 +130,38 @@ window.addEventListener('keydown', (e) => {
   } 
   }
 });
+
+
+const taskForm = document.getElementById('taskForm'); 
+const title = document.getElementById('taskTitle');
+const description = document.getElementById('tastDetail');
+let taskArray = []; 
+
+taskForm.addEventListener('submit', (e) => {
+  e.preventDefault(); 
+  
+  if(title.value === '') return; 
+  
+  const taskObj = {
+    title:title.value, 
+    description: description.value,
+  }
+
+  title.value = ''; 
+  description.value = ''; 
+
+  taskArray.push(taskObj)
+
+
+  const taskString = taskArray.map((task) => (
+      `
+        <h3>${task.title}</h3>
+        <p>${task.description}</p>
+      `
+  )).join('')
+  
+  console.log(taskString)
+})
+
+
 
