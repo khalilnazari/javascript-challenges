@@ -13,8 +13,8 @@ body {
 }
 
 .container {
-    width: 80%;
-    max-width: 900px;
+    width: 99%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -140,11 +140,11 @@ section.tasks {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
+    margin-top: 20px;
 }
 
 .taskWrapper .taskCart {
     background-color: #f5f5f5;
-    margin-bottom: 10px;
 }
 
 .taskWrapper .taskCart__header {
@@ -156,28 +156,93 @@ section.tasks {
     background-color: #e5e5e5;
 }
 
+.taskWrapper .taskCart__header h3 {
+    flex: 1;
+}
+
+
+.taskWrapper .menu {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.taskWrapper .menu i {
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.taskWrapper .menu i:hover {
+    background-color: lightgray;
+}
+
+
+.taskWrapper .menuBar {
+    display: none;
+    position: absolute;
+    top: 35px; 
+    right: -5px;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.taskWrapper .menuBar.show {
+    display: block;
+}
+
+
 .taskWrapper button {
     border: none;
     outline: none;
     padding: 5px 10px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.taskWrapper button:hover {
+    background-color: lightgray;
 }
 
 .taskWrapper .taskCart__body {
     padding: 10px 10px 20px 10px;
+    height: 200px;
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
+.taskWrapper .taskDate {
+    padding: 5px 10px 4px 10px;
+    color: gray;
+    font-size: 12px;
+    background: lightgray;
+    z-index: 10;
 
+}
 
+/* 900px */
 
-/* Medium size */
-@media( max-width:850px) {
-    .container {
-        width: 95%;
+@media (max-width:900px) {
+    .taskWrapper {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
+
 /* Mobile Screen */
 @media( max-width: 600px ) {
+
+    .taskWrapper {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
     .input_div {
         flex-direction: column;
         gap: .2rem;

@@ -135,16 +135,23 @@ window.addEventListener('keydown', (e) => {
 const taskForm = document.getElementById('taskForm'); 
 const title = document.getElementById('taskTitle');
 const description = document.getElementById('tastDetail');
+const taskWrapper = document.getElementById('taskWrapper');
 let taskArray = []; 
 
 taskForm.addEventListener('submit', (e) => {
   e.preventDefault(); 
+
+  const date = new Date(); 
+  const today = date.getDate() +"-"+ date.getMonth() +"-"+ date.getFullYear();
   
   if(title.value === '') return; 
   
   const taskObj = {
+    
     title:title.value, 
     description: description.value,
+    modifiedAt: today,
+    id: uid(),
   }
 
   title.value = ''; 
@@ -153,15 +160,48 @@ taskForm.addEventListener('submit', (e) => {
   taskArray.push(taskObj)
 
 
+  console.log(taskArray)
+
+
   const taskString = taskArray.map((task) => (
       `
-        <h3>${task.title}</h3>
-        <p>${task.description}</p>
+      <div class="taskCart" id=${task.id}>
+        <div class="taskCart__header">
+          <h3>${task.title}</h3>
+          <div class="menu">
+            <i class="fa-solid fa-ellipsis-vertical taskMenuButton"></i>
+            <div class="menuBar">
+              <button>Delete</button>
+              <button>Edit</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="taskCart__body">
+          <p>${task.description}</p>
+        </div>
+        <div class="taskDate">
+          <span>Last modified: ${task.modifiedAt}</span>
+        </div>
+      </div>
       `
   )).join('')
   
-  console.log(taskString)
+  appendTask(taskString)
 })
 
 
+function appendTask(taskString) {
+  taskWrapper.innerHTML = taskString;
+}
 
+const taskMenuButton = document.querySelectorAll('.taskMenuButton'); 
+taskMenuButton.forEach(button => {
+  button.addEventListener('click', () => {
+    button.nextElementSibling.classList.toggle('show'); 
+  })
+})
+
+function uid() {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
